@@ -41,7 +41,8 @@ for k in range(2,15):
     knn = neighbors.KNeighborsClassifier(k)
     errors.append(100*(1 - knn.fit(x_train, y_train).score(x_test, y_test)))
 plt.plot(range(2,15), errors, 'o-')
-plt.show()
+plt.savefig('graph_errors.png')
+#plt.show()
 
 # Get the value of n_neighbors corresponding to a minimal error 
 ymin = min(errors)
@@ -69,5 +70,5 @@ for index, value in enumerate(select):
     plt.axis('off')
     plt.imshow(images[value],cmap=plt.cm.gray_r,interpolation="nearest")
     plt.title('Predicted: {}'.format( predicted[value]) )
-
+plt.savefig('graph_predicted_images.png')
 plt.show()
